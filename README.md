@@ -9,7 +9,7 @@ https://dropfast.tommykeyapp.com/ (未デプロイ)
 | 層 | 採用 |
 |---|---|
 | 配信 | CloudFront。画面は S3、`/api/*` は API Gateway (HTTP API) |
-| API | TypeScript + Hono on Lambda (Node.js 22、arm64) |
+| API | TypeScript + Hono on Lambda (Node.js 24、arm64) |
 | メタデータと回数制御 | DynamoDB (条件付き更新で回数を減らす) |
 | ファイル本体 | S3 (署名付き URL でブラウザから直接読み書き) |
 | 削除 | EventBridge Scheduler の1回きりの予約で削除用 Lambda を呼ぶ。S3 のライフサイクル規則と DynamoDB の有効期限 (Time To Live, TTL) は保険 |
