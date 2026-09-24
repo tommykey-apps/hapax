@@ -1,8 +1,8 @@
-# dropfast
+# hapax
 
 一時ファイル共有サービス。アップロードすると期限と回数制限付きの URL が発行され、指定回数のダウンロードが終わると削除される。暗号化はブラウザで行い、サーバーは平文もファイル名も知らない。
 
-https://dropfast.tommykeyapp.com/ (未デプロイ)
+https://hapax.tommykeyapp.com/ (未デプロイ)
 
 ## 予定スタック
 
@@ -24,7 +24,7 @@ https://dropfast.tommykeyapp.com/ (未デプロイ)
 ## 機能予定
 
 - ファイル本体は API を通さない。ブラウザが暗号化し、`POST /api/uploads` で受け取った S3 の署名付き PUT URL へ直接送る
-- 発行 URL: `https://dropfast.tommykeyapp.com/d/{id}#{key}`。鍵は fragment にあり、サーバーに送られない
+- 発行 URL: `https://hapax.tommykeyapp.com/d/{id}#{key}`。鍵は fragment にあり、サーバーに送られない
 - ダウンロード: `POST /api/downloads/{id}/consume` で DynamoDB の残り回数を減らし、署名付き GET URL を返す。ブラウザで復号する
 - 回数が0になったら、署名付き URL の期限が切れた後に EventBridge Scheduler の予約で S3 から削除する
 - パスワード追加オプション (Password-Based Key Derivation Function 2 (PBKDF2) で fragment の鍵を包む)
@@ -32,4 +32,4 @@ https://dropfast.tommykeyapp.com/ (未デプロイ)
 
 ## 開発ステータス
 
-[open issues](https://github.com/tommykey-apps/dropfast/issues) を参照。作業順は #1 の冒頭に書いてある。
+[open issues](https://github.com/tommykey-apps/hapax/issues) を参照。作業順は #1 の冒頭に書いてある。
